@@ -143,7 +143,10 @@ namespace velodyne_driver
     struct pollfd fds[1];
     fds[0].fd = sockfd_;
     fds[0].events = POLLIN;
-    static const int POLL_TIMEOUT = 1000; // one second (in msec)
+    static const int POLL_TIMEOUT = -1; // Infinitie
+
+ //   static const int POLL_TIMEOUT = 3600000; // 1 hour in msec
+ //  static const int POLL_TIMEOUT = 1000; // one second (in msec)
 
     sockaddr_in sender_address;
     socklen_t sender_address_len = sizeof(sender_address);
